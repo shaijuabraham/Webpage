@@ -1,0 +1,85 @@
+html, body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+}
+
+#titleNav {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    color: rgb(255, 0, 0);
+    background-color: rgb(1, 7, 44);
+    padding: 0.5rem;
+}
+
+/* Media query for smaller mobile devices */
+@media (max-width: 900px) {
+    #titleNav {
+        font-size: 50%;
+        
+    }
+}
+
+#pageTitle {
+    font-size: 350%;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 0.1rem;
+    height: 80px;
+    width: 100%;
+    background: url('https://www.motortrend.com/uploads/sites/5/2020/10/2020_Most_American_Pickup_Trucks_Ranger_Tundra_Silverado.jpg') no-repeat right;
+    background-size: 30%;
+}
+
+#nav {
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#nav a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#content {
+    padding: 6rem 1rem 2rem;
+    font-family: 'Lucida Sans';
+    border: 2px solid #fffefe;
+    background-color: rgb(243, 243, 243);
+    text-align: justify;
+}
+
+.imageTextContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imageTextContainer img {
+    width: 40%;
+    margin-right: 1rem;
+    border-radius: 0.7rem;
+}
+
+.imageBox {
+    border: 2px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    background-color: rgb(0, 39, 104);
+    color: aliceblue;
+    margin-bottom: 1rem;
+    font-family: 'Gill Sans';
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(190, 11, 49);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+}

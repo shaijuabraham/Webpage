@@ -1,0 +1,42 @@
+[
+    {
+        "webUserId": "1",
+        "model": "Ford Raptor",
+        "image": "pics_users/raptor.jpg",
+        "makeyear": "2017",
+        "miliage": "123222",
+        "price": "60,000",
+        "color": "Black",
+        "engine":"8 Cyclender"
+    },
+    {
+        "webUserId": "2",
+        "model": "Ford F150 King Ranger",
+        "image": "pics_users/f150kingR.avif",
+        "makeyear": "2020",
+        "miliage": "677621",
+        "price": "80,000",
+        "color": "Blue",
+        "engine":"8 Cyclender"
+    },
+    {
+        "webUserId": "3",
+        "model": "RAM",
+        "image": "pics_users/ram.jpg",
+        "makeyear": "2023",
+        "miliage": "123422",
+        "price": "40,000",
+        "color": "Red",
+        "engine":"8 Cyclender"
+    },
+    {
+        "webUserId": "4",
+        "model": "Chevrolet Silverado",
+        "image": "pics_users/ChevSil.jpg",
+        "makeyear": "2019",
+        "miliage": "123222",
+        "price": "50,000",
+        "color": "White",
+        "engine":"8 Cyclender"
+    }
+]

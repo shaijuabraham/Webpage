@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- HTML comments like this... -->
+<html>
+
+<head>
+     <!-- Use this type of comment within HTML -->
+     <title> !!! Homework !!!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="icons/smiley.png">
+
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <link href="style/dropDown.css" rel="stylesheet" type="text/css" />
+    <link href="style/myDropDown.css" rel="stylesheet" type="text/css" />
+    <link href="style/usersComingSoon.css" rel="stylesheet" type="text/css" />
+    <link href="style/blog.css" rel="stylesheet" type="text/css" />
+    <link href="style/obj.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- You need these two CDNs (Content Delivery Network) to use react, their version numbers must match -->
+    <!-- changed version on 10-20-2022 from 16.3.1 to 18 for react and react-dom -->
+    <script src='https://unpkg.com/react@18/umd/react.production.min.js'></script>
+    <script src='https://unpkg.com/react-dom@18/umd/react-dom.production.min.js'></script>
+
+    <!-- This CDN lets you use JSX (looks like HTML tags in JS) -->
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+
+    <!-- This CDN lets you use React Routing -->
+    <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- Put JS reusable first (these are called by CGFs or by the page like the dropDown FW). -->
+    <script src="_JS_reusable/dropDownFW.js"></script>
+    <script src="_JS_reusable/MakeObj.js"></script>
+
+    <!-- JS Content Generating functions (these are called by the router). -->
+    <script src="_JS_CGF/ObjContentNoReact.js"></script>
+    <script src="_JS_CGF/UsersComingSoon.js"></script>
+
+    <!-- React reusable (these are called by CGFs). -->
+    <script type="text/babel" src="_React_reusable/ConvertEle.js"></script>
+
+    <!-- React Content Generating functions (these are called by the router) -->
+    <script type="text/babel" src="_React_CGF/Blog.js"></script>
+    <script type="text/babel" src="_React_CGF/Home.js"></script>
+    <script type="text/babel" src="_React_CGF/infoContent.js"></script>
+
+
+    <!-- Any React scripts (which all have JSX) needs script type="text/babel" -->
+
+
+    <script type="text/babel">
+
+        "use strict";
+
+        dropDownFW({
+            dropHeaderClass: "dropHeader",
+            dropContentClass: "dropContent",
+            showClass: "show",
+            hideClass: "hide"
+        });
+
+        const Link = ReactRouterDOM.Link;
+        const Route = ReactRouterDOM.Route;
+
+        const App = () => (
+            <ReactRouterDOM.HashRouter>
+
+                <div id="titleNav">
+                    <div id="title">
+                        American Trucks !!!
+                    </div>
+                    <div id="nav">
+                        <div class="dropDown">
+                            <Link to="/home">Home</Link>
+                        </div>
+
+                        <div class="dropDown">
+                            <div class="dropHeader">Account</div>
+                            <div class="dropContent">
+                                <Link to="/register">Register</Link> <br />
+                                <Link to="/login">Log In</Link> <br />
+                                <Link to="/logout">Log Out</Link> <br />
+                                <Link to="/profile">Profile</Link> <br />
+                            </div>
+                        </div>
+
+                        <div class="dropDown">
+                            <div class="dropHeader">Search JS</div>
+                            <div class="dropContent">
+                                <Link to="/infoContent">Info</Link><br />
+                                <Link to="/users">Users (coming soon, Simple CGF)</Link> <br />
+                                <Link to="/myObj">My Objects (JS Obj Module)</Link> <br />
+                                <a target="_blank" href="docs/DB_proposal.pdf">My DB PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="dropDown">
+                            <Link to="/myBlog">Blog</Link>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content">
+                    <Route path="/" exact component={Home} />
+                    <Route path="/home" component={Home} />
+                    <Route path="/users" component={
+                        () => <ConvertEle ele={UsersComingSoon()} />
+                    } />
+                    <Route path="/myObj" component={() => <ConvertEle ele={ObjContentNoReact()} />} />
+                    <Route path="/infoContent" component={() => <ConvertEle ele={infoContent()} />} />    
+                    <Route path="/myBlog" component={Blog} />
+                </div>
+
+                <div id="footer">
+                    Shaiju Rajan
+                </div>
+
+            </ReactRouterDOM.HashRouter>
+        );
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>
